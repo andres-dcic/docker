@@ -1,0 +1,165 @@
+# 00 - Comandos
+
+En este archivo sólo se listan los comandos que serán vistos durante la asistencia y que son largos como para dictar o copiar manualmente.
+
+
+## 01 - Preparación - Instalación de docker-ce (opcional)
+
+```sh
+# Actualizamos apt con los ultimos paquetes
+sudo apt update
+# Instalamos dependencias
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+# Agregamos la llave GPG del repo oficial de Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Agregamos el repo de Docker a las fuentes de APT
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+# Instalamos docker-ce
+sudo apt install docker-ce
+# Revisemos que tiene el servicio corriendo
+sudo systemctl status docker
+# Darle permiso a nuestro usuario para correr docker
+# Por defecto docker sólo corre con root
+sudo usermod -aG docker ${USER}
+# Nos relogueamos a la terminal o saltamos a una sub shell
+su - ${USER}
+# Verificamos que entre los grupos tenemos a docker
+groups
+```
+
+
+## 01 - Jugando con docker - Obtener y ejecutar imagen
+
+```bash
+# obtener imagen de alpine
+docker pull alpine:latest
+# correr imagen de alpine localmente
+docker run --name docker_demo --rm -i -t alpine:latest sh 
+```
+
+
+## 01 - Mejor armemos una imagen propia
+
+```bash
+# Parados en root de este repo
+docker build -t demo1:latest extras/01-contenedores
+# Conectarnos a imagen
+docker run --name alpine_demo --rm -i -t demo1:latest sh
+# Corremos un comando cualquiera
+curl google.com
+# Salimos
+exit
+```
+
+
+## 01 - Pusheando nuestra imagen
+
+```bash
+# Personalizar comando
+DOCKER_USER="myuser"
+# Login
+docker login
+# Tagueamos la imagen con el nombre del repo
+docker tag demo1:latest ${DOCKER_USER}/demo1:latest
+# Hacemos push
+docker push ${DOCKER_USER}/demo1:latest
+```
+
+
+## 02 - Layers
+
+```bash
+# Creamos un contenedor desde una imagen de ubuntu
+docker run --interactive --tty --rm ubuntu:22.04
+
+# ping google.com
+ping google.com -c 1 # `bash: ping: command not found`
+
+# Install ping
+apt update
+apt install iputils-ping --yes
+
+ping google.com -c 1 # This time it succeeds!
+exit
+#salimos y chau!
+```
+
+
+## 02 - Crear imagen de nuestra aplicación
+
+```bash
+# Ver docker file
+cat extras/02-imagenes/v0.1.0/Dockerfile
+# Ver codigo de la app simulada
+cat extras/02-imagenes/v0.1.0/src/index.php
+# Crear imagen
+docker build -t my-app extras/02-imagenes/v0.1.0/    
+# Probar
+docker run --name test --rm -i -t my-app sh 
+# Revisar contenido dentro de contenedor
+ls /var/www/html/
+# Deberíamos ver un "index.php", luego salimos
+exit
+# Ahora corremos la imagen pero exponiendo puerto 80
+docker run -p 80:80 my-app
+```
+
+## 02 - Tagging de imágenes
+
+```bash
+# Agregar tag v0.1.0 a nuestra app
+docker tag my-app:latest my-app:v0.1.0
+# Revisar tags en nuestras imagenes locales
+docker images | grep my-app
+```
+
+## 02 - Actualizando imágen
+
+```bash
+# Ver cambios
+cat extras/02-imagenes/v0.2.0/Dockerfile
+# Crear nueva imagen
+docker build -t my-app:v0.2.0 extras/02-imagenes/v0.2.0/
+# Ver imagenes locales
+docker images | grep my-app
+# Actualizar latest
+docker tag my-app:v0.2.0 my-app:latest
+# Comprobar versiones locales 
+docker images | grep my-app    
+```
+
+## 02 - Subiendo nuestra imagen a un registry
+
+```bash
+# Personalizar comando
+DOCKER_USER="myuser"
+# Login
+docker login
+# Tagueamos la imagen con el nombre del repo
+docker tag my-app:v0.2.0 ${DOCKER_USER}/workshop-uns:v0.2.0
+docker tag my-app:v0.2.0 ${DOCKER_USER}/workshop-uns:latest
+# Hacemos push
+docker push ${DOCKER_USER}/workshop-uns:v0.2.0
+docker push ${DOCKER_USER}/workshop-uns:latest
+```
+
+## 02 - Multiple instancias de la misma imagen
+
+```bash
+# Correr en puerto 80
+docker run -p 80:80 my-app:latest
+# Correr en puerto 8080
+docker run -p 8080:80 my-app:latest
+```
+
+## 03 - Volumenes y bind
+```bash
+# mysql, no mount, no volume  --> Data lost
+docker run -d -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+# mysql, mount                --> Data kept, local folder
+docker run -d -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v $(pwd)/mysql-data:/var/lib/mysql mysql
+# mysql, volume               --> Data kept, docker volume
+docker run -d -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v mysql-data:/var/lib/mysql mysql
+```
+
+
