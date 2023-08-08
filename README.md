@@ -1,4 +1,5 @@
-# AT Docker - Secretaría de modernización de Catamarca 08/23
+# AT Docker - Secretaría de modernización de Catamarca 
+
 
 ## Objetivo
 El objetivo general de esta asistencia técnica es proporcionar a la Secretaría de  Modernización capacidades y herramientas para abordar los aspectos prácticos de `Docker`,
