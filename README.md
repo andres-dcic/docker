@@ -12,11 +12,6 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 
 ### [01 - Fundamentos de docker I ](./contenido/clase1/00-motivacion/readme.md)
 
-<!--
-- Instalación de los componentes necesarios para utilizar Docker
-- Pull y Push de una imagen
-- Container Registry/Docker Registry
--->
 
 - ¿Qué es Docker y por qué se utiliza?
 - Arquitectura y componentes de Docker 
@@ -28,13 +23,6 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 - [Ejercicios](./practica/semana1/)
 
 ### 02 - Fundamentos de docker II
-<!--
-- Crear una imagen a partir de una aplicación propia
-- Tagging de imágenes
-- Update de imágenes
-- Correr varias instancias de la misma imagen
-- Balanceando tráfico a las imágenes
--->
 
 - Conceptos de networking en Docker 
 - Exponer puertos y acceder a servicios en contenedores de Docker
@@ -44,13 +32,6 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 
 
 ### 03 - Desarrollo de aplicaciones
-<!--
-- Instalación de Kubernetes en local
-- Primera prueba de pod
-- Nuestra app en un pod
-- Exponer y probar nuestra aplicación
-- Formas de exponer servicios
--->
 
 - Dockerización de diferentes tipos de aplicaciones 
 - Mejores prácticas para escribir Dockerfiles y optimizar imágenes de Docker
@@ -61,12 +42,6 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 
 ### 04 - Docker Swarm / Kubernetes
 
-<!--
-- Self-healing
-- Controladores
-- Balanceo por medio de servicio
-- Multiples servicios, mismo label
--->
 
 - Introducción a Docker Swarm y Kubernetes
 - Configuración de un clúster de Docker Swarm
@@ -75,52 +50,3 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 - Implementación de aplicaciones y escalado de contenedores con Kubernetes
 - [Ejercicios](./practica/semana4/)
 
-<!--
-### [05 - Buenas prácticas](contenido/05-buenas-practicas.md)
-
-- Namespaces
-- Kustomization
-- Herramientas
-- Aplicar resources al spec
-- SecurityContext
-- Optimizar imagen
-  - Tamaño
-  - Layers
-  - Alpine
-- Readiness, Liveness
-  
-### [06 - Monitoreo](contenido/06-monitoreo.md)
-
-- Prometheus
-  - Queries
-- Grafana
-  - Dashboards públicos
-
-### [07 - Resolución de problemas](contenido/07-troubleshooting.md)
-
-- Ejemplos de situaciones comunes
-  - CrashLoopBackOff
-  - ImagePullBackOff
-  - Pending
-  - OOMKill
-  - Readiness
-  - Terminating
-- kubectl explain
-- kubectl debug
-- Operadores y su complejidad
-
-### [99 - Cheatsheet](contenido/99-cheatsheet.md)
-
-- K3d
-- Docker
-- Kubernetes
-
-## Otros recursos
-
-- [kube.academy](https://kube.academy/)
-- [kube.campus](https://kubecampus.io/)
-
-## Comandos para el workshop en vivo
-
-En un archivo [dejamos todos los comandos](contenido/00-comandos.md) que se utilizarán durante el workshop para que puedan copiar y pegar acorde a como vayan avanzando en el material.
--->
