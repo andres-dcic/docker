@@ -16,14 +16,14 @@ El uso de Compose es básicamente un proceso de tres pasos:
 - Por último, ejecutar docker-compose up, la cual desplegará todo el entorno para que la aplicación pueda funcionar.
 
 
-# Ventajas de usar docker-compose
+# Ventajas de usar Docker-compose
 
 * Hacer todo de manera **declarativa** para que no tenga que repetir todo el proceso cada vez que construyo el escenario.
 * Poner en funcionamiento todos los contenedores que necesita mi aplicación de una sola vez y debidamente configurados.
 * Garantizar que los contenedores **se arrancan en el orden adecuado**. Por ejemplo: mi aplicación no podrá funcionar debidamente hasta que no esté el servidor de bases de datos funcionando en marcha.
 * Asegurarnos de que hay **comunicación** entre los contenedores que pertenecen a la aplicación.
 
-# Instalación docker-compose
+# Instalación Docker-compose
 
 Instalación de docker-compose  [Docker-compose](https://docs.docker.com/compose/install/)
 

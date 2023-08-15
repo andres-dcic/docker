@@ -6,7 +6,7 @@ tags: Docker, Introduccion
 date_published: 2023-08-01
 ---
 
-# Networking entre contendores
+# Networking entre contenedores
 
 Los contenedores envuelven una pieza de software en un sistema de archivos completo que contiene todo lo necesario para ejecutarse: código, tiempo de ejecución, 
 herramientas del sistema, librerías, etc: cualquier cosa que se pueda instalar en un servidor. Esto garantiza que el software siempre se ejecutará igual, independientemente de su entorno. Por defecto, los contenedores aíslan las aplicaciones entre sí y de la infraestructura subyacente, al tiempo que proporcionan una capa adicional de protección para las aplicaciones.
