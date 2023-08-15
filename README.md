@@ -22,7 +22,7 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 - Publicación y descarga de imágenes en Docker Hub
 - [Ejercicios](./practica/semana1/)
 
-### 02 - Fundamentos de docker II
+### [02 - Fundamentos de docker II](./contenido/clase2/readme.md)
 
 - Conceptos de networking en Docker 
 - Exponer puertos y acceder a servicios en contenedores de Docker
