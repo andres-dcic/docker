@@ -31,7 +31,7 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 - [Ejercicios](./practica/semana2/)
 
 
-### 03 - Desarrollo de aplicaciones
+### [03 - Desarrollo de aplicaciones](./contenido/clase3/readme.md) 
 
 - Dockerización de diferentes tipos de aplicaciones 
 - Mejores prácticas para escribir Dockerfiles y optimizar imágenes de Docker
