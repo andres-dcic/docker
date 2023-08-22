@@ -1,0 +1,16 @@
+name: CI with Docker Catamarca
+on:
+  push:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        run: |
+             docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build image
+        run: |
+              docker build -t andr35/myapp .
+              docker push andr35/myapp:latest
