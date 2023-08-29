@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mi-app
+  labels:
+    app: mi-app
+spec:
+  replicas: 3   # En el spec, agregamos la cantidad de replicas que queremos
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      containers:
+      - image: andr35/imagen:v0.2.0
+    # - image: andr35/imagen:v0.3.0
+        name: mi-pod
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
