@@ -40,7 +40,7 @@ Específicamente, se busca que el cuerpo de agentes vinculados a la AT puedan cr
 - Mejores prácticas de seguridad para contenedores de Docker
 - [Ejercicios](./practica/semana3/)
 
-### 04 - Docker Swarm / Kubernetes
+### [04 - Docker Swarm / Kubernetes](./contenido/clase4/readme.md)
 
 
 - Introducción a Docker Swarm y Kubernetes
