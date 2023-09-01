@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-first
+spec:
+  selector:
+    matchLabels:
+      app: demo-first
+  template:
+    metadata:
+      labels:
+        app: demo-first
+    spec:
+      containers:
+      - name: demo-first
+        image: andr35/miapp:v0.1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MENSAJE
+          value: Hello from the first deployment!
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-first-service
+spec:
+  type: NodePort
+  selector:
+    app: demo-first
+  ports:
+  - port: 80
+    targetPort: 3000

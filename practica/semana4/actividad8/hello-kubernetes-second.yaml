@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-second
+spec:
+  selector:
+    matchLabels:
+      app: demo-second
+  template:
+    metadata:
+      labels:
+        app: demo-second
+    spec:
+      containers:
+      - name: demo-second
+        image: andr35/miapp:v0.1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MENSAJE
+          value: Hello from the second deployment!
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-second-service
+spec:
+  type: NodePort
+  selector:
+    app: demo-second
+  ports:
+  - port: 80
+    targetPort: 3000
